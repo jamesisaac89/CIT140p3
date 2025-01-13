@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MPH to KPH</title>
+</head>
+<body>
+    <h1>MPH to KPH</h1>
+    <button id="generateButton">Display Data</button>
+    <div id="tableContainer"></div>
+
+    <script>
+        var mph = [20, 35, 45, 55, 65, 70, 75, 80, 90];
+
+        document.getElementById("generateButton").onclick = function() {
+            generateTable();
+        };
+
+        function generateTable() {
+            var tableHTML = '<table><tr><th>Miles per Hour</th><th>Kilometers per Hour</th></tr>';
+            
+            for (var i = 0; i < mph.length; i++) {
+                var kph = (mph[i] * 1.609).toFixed(1); 
+                tableHTML += '<tr><td>' + mph[i] + '</td><td>' + kph + '</td></tr>';
+            }
+            
+            tableHTML += '</table>';
+            document.getElementById("tableContainer").innerHTML = tableHTML; 
+        }
+    </script>
+</body>
+</html>
